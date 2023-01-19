@@ -3,7 +3,7 @@
 resource "azurerm_role_assignment" "spn-ado-Personal-Public-geolocation-prd_rg-platform-apim-prd-uksouth_contributor" {
   scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-apim-prd-uksouth"
   role_definition_name = "Contributor"
-  principal_id         = azuread_service_principal.spn-ado-Personal-Public-geolocation-prd_service-principal.object_id
+  principal_id         = data.azuread_service_principal.spn-ado-Personal-Public-geolocation-prd_service-principal.object_id
 }
 
 resource "azurerm_role_assignment" "spn-ado-XtremeIdiots-Public-portal-prd_rg-platform-apim-prd-uksouth_contributor" {
