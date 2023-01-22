@@ -1,5 +1,5 @@
 subscription_id         = "903b6685-c12a-4703-ac54-7ec1ff15ca43"
-resource_group_name     = "rg-platform-tf-strategic-services-permissions-uksouth"
-storage_account_name    = "satfpltfrmssp3yhd"
+resource_group_name     = "rg-tf-platform-strategic-services-permissions-prd-uksouth"
+storage_account_name    = "sae73erl9wdxzi33y"
 container_name          = "tfstate"
 key                     = "terraform.tfstate"
