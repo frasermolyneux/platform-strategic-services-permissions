@@ -1,55 +1,20 @@
 locals {
-  acrpull_role_assignments = flatten([
+  principal_role_assignments = flatten([
     for principal in var.service_principals : [
-      for scope in principal.acrpull_assignments : {
-        key            = format("%s-%s", principal.name, scope)
-        scope          = scope
-        principal_name = principal.name
-      }
-    ]
-  ])
-
-  owner_role_assignments = flatten([
-    for principal in var.service_principals : [
-      for scope in principal.owner_assignments : {
-        key            = format("%s-%s", principal.name, scope)
-        scope          = scope
-        principal_name = principal.name
-      }
-    ]
-  ])
-
-  contributor_role_assignments = flatten([
-    for principal in var.service_principals : [
-      for scope in principal.contributor_assignments : {
-        key            = format("%s-%s", principal.name, scope)
-        scope          = scope
-        principal_name = principal.name
+      for role_assignment in principal.role_assignments : {
+        key                  = format("%s-%s-%s", principal.name, role_assignment.scope, role_assignment.role_definition_name)
+        scope                = role_assignment.scope
+        principal_name       = principal.name
+        role_definition_name = role_assignment.role_definition_name
       }
     ]
   ])
 }
 
-resource "azurerm_role_assignment" "acrpull" {
-  for_each = { for each in local.acrpull_role_assignments : each.key => each }
+resource "azurerm_role_assignment" "principal" {
+  for_each = { for each in local.principal_role_assignments : each.key => each }
 
   scope                = each.value.scope
-  role_definition_name = "AcrPull"
-  principal_id         = data.azuread_service_principal.workload[each.value.principal_name].object_id
-}
-
-resource "azurerm_role_assignment" "contributor" {
-  for_each = { for each in local.contributor_role_assignments : each.key => each }
-
-  scope                = each.value.scope
-  role_definition_name = "Contributor"
-  principal_id         = data.azuread_service_principal.workload[each.value.principal_name].object_id
-}
-
-resource "azurerm_role_assignment" "owner" {
-  for_each = { for each in local.owner_role_assignments : each.key => each }
-
-  scope                = each.value.scope
-  role_definition_name = "Owner"
+  role_definition_name = each.value.role_definition_name
   principal_id         = data.azuread_service_principal.workload[each.value.principal_name].object_id
 }

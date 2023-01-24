@@ -14,8 +14,9 @@ variable "service_principals" {
   type = list(object({
     name = string
 
-    acrpull_assignments     = optional(list(string), [])
-    owner_assignments       = optional(list(string), [])
-    contributor_assignments = optional(list(string), [])
+    role_assignments = optional(list(object({
+      scope                = string
+      role_definition_name = string
+    })), [])
   }))
 }

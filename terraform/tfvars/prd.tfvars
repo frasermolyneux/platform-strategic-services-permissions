@@ -14,38 +14,56 @@ service_principals = [
   },
   {
     name = "spn-demo-manager-production"
-    acrpull_assignments = [
-      "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-acr-4xhbmv4lmxxbs-prd-uksouth/providers/Microsoft.ContainerRegistry/registries/acr4xhbmv4lmxxbs"
+    role_assignments = [
+      { // Required to pull Bicep modules from the ACR
+        role_definition_name = "AcrPull",
+        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-acr-4xhbmv4lmxxbs-prd-uksouth/providers/Microsoft.ContainerRegistry/registries/acr4xhbmv4lmxxbs"
+      }
     ]
   },
   {
     name = "spn-geo-location-development"
-    acrpull_assignments = [
-      "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-acr-4xhbmv4lmxxbs-prd-uksouth/providers/Microsoft.ContainerRegistry/registries/acr4xhbmv4lmxxbs"
+    role_assignments = [
+      { // Required to pull Bicep modules from the ACR
+        role_definition_name = "AcrPull",
+        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-acr-4xhbmv4lmxxbs-prd-uksouth/providers/Microsoft.ContainerRegistry/registries/acr4xhbmv4lmxxbs"
+      }
     ]
   },
   {
     name = "spn-geo-location-production"
-    acrpull_assignments = [
-      "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-acr-4xhbmv4lmxxbs-prd-uksouth/providers/Microsoft.ContainerRegistry/registries/acr4xhbmv4lmxxbs"
+    role_assignments = [
+      { // Required to pull Bicep modules from the ACR
+        role_definition_name = "AcrPull",
+        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-acr-4xhbmv4lmxxbs-prd-uksouth/providers/Microsoft.ContainerRegistry/registries/acr4xhbmv4lmxxbs"
+      }
     ]
   },
   {
     name = "spn-platform-connectivity-development"
-    acrpull_assignments = [
-      "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-acr-4xhbmv4lmxxbs-prd-uksouth/providers/Microsoft.ContainerRegistry/registries/acr4xhbmv4lmxxbs"
+    role_assignments = [
+      { // Required to pull Bicep modules from the ACR
+        role_definition_name = "AcrPull",
+        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-acr-4xhbmv4lmxxbs-prd-uksouth/providers/Microsoft.ContainerRegistry/registries/acr4xhbmv4lmxxbs"
+      }
     ]
   },
   {
     name = "spn-platform-connectivity-production"
-    acrpull_assignments = [
-      "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-acr-4xhbmv4lmxxbs-prd-uksouth/providers/Microsoft.ContainerRegistry/registries/acr4xhbmv4lmxxbs"
+    role_assignments = [
+      { // Required to pull Bicep modules from the ACR
+        role_definition_name = "AcrPull",
+        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-acr-4xhbmv4lmxxbs-prd-uksouth/providers/Microsoft.ContainerRegistry/registries/acr4xhbmv4lmxxbs"
+      }
     ]
   },
   {
     name = "spn-platform-monitoring-production"
-    acrpull_assignments = [
-      "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-acr-4xhbmv4lmxxbs-prd-uksouth/providers/Microsoft.ContainerRegistry/registries/acr4xhbmv4lmxxbs"
+    role_assignments = [
+      { // Required to pull Bicep modules from the ACR
+        role_definition_name = "AcrPull",
+        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-acr-4xhbmv4lmxxbs-prd-uksouth/providers/Microsoft.ContainerRegistry/registries/acr4xhbmv4lmxxbs"
+      }
     ]
   },
   {
@@ -65,6 +83,45 @@ service_principals = [
   },
   {
     name = "spn-portal-repository-development"
+    role_assignments = [
+      { // Required to publish APIs and create subscriptions
+        role_definition_name = "API Management Service Contributor",
+        scope                = "/subscriptions/d68448b0-9947-46d7-8771-baa331a3063a/resourceGroups/rg-platform-apim-22ll2pfvig6pg-dev-uksouth/providers/Microsoft.ApiManagement/service/apim-mx-platform-22ll2pfvig6pg-dev-uksouth"
+      },
+      { // Required to create web apps for the app service plan
+        role_definition_name = "Website Contributor",
+        scope                = "/subscriptions/d68448b0-9947-46d7-8771-baa331a3063a/resourceGroups/rg-platform-webapps-22ll2pfvig6pg-dev-uksouth/providers/Microsoft.Web/serverFarms/plan-platform-22ll2pfvig6pg-dev-uksouth-01"
+      },
+      { // Required to create Front Door configuration for external facing services
+        role_definition_name = "CDN Profile Contributor",
+        scope                = "/subscriptions/d68448b0-9947-46d7-8771-baa331a3063a/resourceGroups/rg-platform-frontdoor-22ll2pfvig6pg-dev-uksouth/providers/Microsoft.Cdn/profiles/fd-platform-22ll2pfvig6pg-dev"
+      },
+      { // Required to create DNS configuration for external facing services
+        role_definition_name = "DNS Zone Contributor",
+        scope                = "/subscriptions/db34f572-8b71-40d6-8f99-f29a27612144/resourceGroups/rg-platform-dns-utftcdi77in3c-prd-uksouth"
+      }
+    ]
+  },
+  {
+    name = "spn-portal-repository-production"
+    role_assignments = [
+      { // Required to publish APIs and create subscriptions
+        role_definition_name = "API Management Service Contributor",
+        scope                = "/subscriptions/d68448b0-9947-46d7-8771-baa331a3063a/resourceGroups/rg-platform-apim-4xhbmv4lmxxbs-prd-uksouth/providers/Microsoft.ApiManagement/service/apim-mx-platform-4xhbmv4lmxxbs-prd-uksouth"
+      },
+      { // Required to create web apps for the app service plan
+        role_definition_name = "Website Contributor",
+        scope                = "/subscriptions/d68448b0-9947-46d7-8771-baa331a3063a/resourceGroups/rg-platform-webapps-4xhbmv4lmxxbs-prd-uksouth/providers/Microsoft.Web/serverFarms/plan-platform-4xhbmv4lmxxbs-prd-uksouth-01"
+      },
+      { // Required to create Front Door configuration for external facing services
+        role_definition_name = "CDN Profile Contributor",
+        scope                = "/subscriptions/d68448b0-9947-46d7-8771-baa331a3063a/resourceGroups/rg-platform-frontdoor-4xhbmv4lmxxbs-prd-uksouth/providers/Microsoft.Cdn/profiles/fd-platform-4xhbmv4lmxxbs-prd"
+      },
+      { // Required to create DNS configuration for external facing services
+        role_definition_name = "DNS Zone Contributor",
+        scope                = "/subscriptions/db34f572-8b71-40d6-8f99-f29a27612144/resourceGroups/rg-platform-dns-utftcdi77in3c-prd-uksouth"
+      }
+    ]
   },
   {
     name = "spn-portal-repository-func-development"
@@ -73,18 +130,21 @@ service_principals = [
     name = "spn-portal-repository-func-production"
   },
   {
-    name = "spn-portal-repository-production"
-  },
-  {
     name = "spn-portal-servers-integration-development"
-    acrpull_assignments = [
-      "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-acr-4xhbmv4lmxxbs-prd-uksouth/providers/Microsoft.ContainerRegistry/registries/acr4xhbmv4lmxxbs"
+    role_assignments = [
+      { // Required to pull Bicep modules from the ACR
+        role_definition_name = "AcrPull",
+        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-acr-4xhbmv4lmxxbs-prd-uksouth/providers/Microsoft.ContainerRegistry/registries/acr4xhbmv4lmxxbs"
+      }
     ]
   },
   {
     name = "spn-portal-servers-integration-production"
-    acrpull_assignments = [
-      "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-acr-4xhbmv4lmxxbs-prd-uksouth/providers/Microsoft.ContainerRegistry/registries/acr4xhbmv4lmxxbs"
+    role_assignments = [
+      { // Required to pull Bicep modules from the ACR
+        role_definition_name = "AcrPull",
+        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-acr-4xhbmv4lmxxbs-prd-uksouth/providers/Microsoft.ContainerRegistry/registries/acr4xhbmv4lmxxbs"
+      }
     ]
   },
   {
@@ -101,8 +161,11 @@ service_principals = [
   },
   {
     name = "spn-bicep-modules-production"
-    contributor_assignments = [
-      "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-acr-4xhbmv4lmxxbs-prd-uksouth/providers/Microsoft.ContainerRegistry/registries/acr4xhbmv4lmxxbs"
+    role_assignments = [
+      { // Required to push Bicep modules to the ACR
+        role_definition_name = "Contributor",
+        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-acr-4xhbmv4lmxxbs-prd-uksouth/providers/Microsoft.ContainerRegistry/registries/acr4xhbmv4lmxxbs"
+      }
     ]
   }
 ]
