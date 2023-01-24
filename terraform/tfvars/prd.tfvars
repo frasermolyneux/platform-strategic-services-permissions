@@ -8,6 +8,21 @@ tags = {
   Git         = "https://github.com/frasermolyneux/platform-strategic-services-permissions"
 }
 
+subscriptions = {
+  sub-platform-connectivity = {
+    name            = "sub-platform-connectivity"
+    subscription_id = "db34f572-8b71-40d6-8f99-f29a27612144"
+  },
+  sub-platform-strategic = {
+    name            = "sub-platform-strategic"
+    subscription_id = "903b6685-c12a-4703-ac54-7ec1ff15ca43"
+  },
+  sub-visualstudio-enterprise = {
+    name            = "sub-visualstudio-enterprise"
+    subscription_id = "d68448b0-9947-46d7-8771-baa331a3063a"
+  }
+}
+
 service_principals = [
   {
     name = "spn-azure-landing-zones-production"
@@ -87,18 +102,22 @@ service_principals = [
       { // Required to publish APIs and create subscriptions
         role_definition_name = "API Management Service Contributor",
         scope                = "/subscriptions/d68448b0-9947-46d7-8771-baa331a3063a/resourceGroups/rg-platform-apim-22ll2pfvig6pg-dev-uksouth/providers/Microsoft.ApiManagement/service/apim-mx-platform-22ll2pfvig6pg-dev-uksouth"
+        provider             = "sub-visualstudio-enterprise"
       },
       { // Required to create web apps for the app service plan
         role_definition_name = "Website Contributor",
         scope                = "/subscriptions/d68448b0-9947-46d7-8771-baa331a3063a/resourceGroups/rg-platform-webapps-22ll2pfvig6pg-dev-uksouth/providers/Microsoft.Web/serverFarms/plan-platform-22ll2pfvig6pg-dev-uksouth-01"
+        provider             = "sub-visualstudio-enterprise"
       },
       { // Required to create Front Door configuration for external facing services
         role_definition_name = "CDN Profile Contributor",
         scope                = "/subscriptions/d68448b0-9947-46d7-8771-baa331a3063a/resourceGroups/rg-platform-frontdoor-22ll2pfvig6pg-dev-uksouth/providers/Microsoft.Cdn/profiles/fd-platform-22ll2pfvig6pg-dev"
+        provider             = "sub-visualstudio-enterprise"
       },
       { // Required to create DNS configuration for external facing services
         role_definition_name = "DNS Zone Contributor",
         scope                = "/subscriptions/db34f572-8b71-40d6-8f99-f29a27612144/resourceGroups/rg-platform-dns-utftcdi77in3c-prd-uksouth"
+        provider             = "sub-platform-connectivity"
       }
     ]
   },
@@ -107,19 +126,21 @@ service_principals = [
     role_assignments = [
       { // Required to publish APIs and create subscriptions
         role_definition_name = "API Management Service Contributor",
-        scope                = "/subscriptions/d68448b0-9947-46d7-8771-baa331a3063a/resourceGroups/rg-platform-apim-4xhbmv4lmxxbs-prd-uksouth/providers/Microsoft.ApiManagement/service/apim-mx-platform-4xhbmv4lmxxbs-prd-uksouth"
+        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-apim-4xhbmv4lmxxbs-prd-uksouth/providers/Microsoft.ApiManagement/service/apim-mx-platform-4xhbmv4lmxxbs-prd-uksouth"
+        provider             = "sub-visualstudio-enterprise"
       },
       { // Required to create web apps for the app service plan
         role_definition_name = "Website Contributor",
-        scope                = "/subscriptions/d68448b0-9947-46d7-8771-baa331a3063a/resourceGroups/rg-platform-webapps-4xhbmv4lmxxbs-prd-uksouth/providers/Microsoft.Web/serverFarms/plan-platform-4xhbmv4lmxxbs-prd-uksouth-01"
+        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-webapps-4xhbmv4lmxxbs-prd-uksouth/providers/Microsoft.Web/serverFarms/plan-platform-4xhbmv4lmxxbs-prd-uksouth-01"
       },
       { // Required to create Front Door configuration for external facing services
         role_definition_name = "CDN Profile Contributor",
-        scope                = "/subscriptions/d68448b0-9947-46d7-8771-baa331a3063a/resourceGroups/rg-platform-frontdoor-4xhbmv4lmxxbs-prd-uksouth/providers/Microsoft.Cdn/profiles/fd-platform-4xhbmv4lmxxbs-prd"
+        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-frontdoor-4xhbmv4lmxxbs-prd-uksouth/providers/Microsoft.Cdn/profiles/fd-platform-4xhbmv4lmxxbs-prd"
       },
       { // Required to create DNS configuration for external facing services
         role_definition_name = "DNS Zone Contributor",
         scope                = "/subscriptions/db34f572-8b71-40d6-8f99-f29a27612144/resourceGroups/rg-platform-dns-utftcdi77in3c-prd-uksouth"
+        provider             = "sub-platform-connectivity"
       }
     ]
   },
