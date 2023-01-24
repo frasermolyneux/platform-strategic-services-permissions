@@ -37,3 +37,19 @@ resource "azurerm_role_assignment" "acrpull" {
   role_definition_name = "AcrPull"
   principal_id         = data.azuread_service_principal.workload[each.value.principal_name].object_id
 }
+
+resource "azurerm_role_assignment" "contributor" {
+  for_each = { for each in local.contributor_role_assignments : each.key => each }
+
+  scope                = each.value.scope
+  role_definition_name = "Contributor"
+  principal_id         = data.azuread_service_principal.workload[each.value.principal_name].object_id
+}
+
+resource "azurerm_role_assignment" "owner" {
+  for_each = { for each in local.owner_role_assignments : each.key => each }
+
+  scope                = each.value.scope
+  role_definition_name = "Owner"
+  principal_id         = data.azuread_service_principal.workload[each.value.principal_name].object_id
+}
