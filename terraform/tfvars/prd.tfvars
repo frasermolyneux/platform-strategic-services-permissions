@@ -127,7 +127,6 @@ service_principals = [
       { // Required to publish APIs and create subscriptions
         role_definition_name = "API Management Service Contributor",
         scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-apim-4xhbmv4lmxxbs-prd-uksouth/providers/Microsoft.ApiManagement/service/apim-mx-platform-4xhbmv4lmxxbs-prd-uksouth"
-        provider             = "sub-visualstudio-enterprise"
       },
       { // Required to create web apps for the app service plan
         role_definition_name = "Website Contributor",
