@@ -136,6 +136,7 @@ service_principals = [
       { // Required to create Front Door configuration for external facing services
         role_definition_name = "CDN Profile Contributor",
         scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-frontdoor-4xhbmv4lmxxbs-prd-uksouth/providers/Microsoft.Cdn/profiles/fd-platform-4xhbmv4lmxxbs-prd"
+        provider             = "sub-platform-connectivity"
       },
       { // Required to create DNS configuration for external facing services
         role_definition_name = "DNS Zone Contributor",
