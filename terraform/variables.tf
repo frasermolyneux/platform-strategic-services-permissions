@@ -14,6 +14,10 @@ variable "tags" {
   default = {}
 }
 
+variable "aad_groups" {
+  type = list(string)
+}
+
 variable "subscriptions" {
   type = map(object({
     name            = string
@@ -29,6 +33,11 @@ variable "service_principals" {
       scope                = string
       role_definition_name = string
       provider             = optional(string, null)
+    })), [])
+
+    aad_memberships = optional(list(object({
+      group_name = string
+      provider   = optional(string, null)
     })), [])
   }))
 }

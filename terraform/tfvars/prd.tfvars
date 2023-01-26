@@ -9,6 +9,11 @@ tags = {
   Git         = "https://github.com/frasermolyneux/platform-strategic-services-permissions"
 }
 
+aad_groups = [
+  "sg-sql-platform-admins-dev-01",
+  "sg-sql-platform-admins-prd-01"
+]
+
 subscriptions = {
   sub-platform-connectivity = {
     name            = "sub-platform-connectivity"
@@ -158,6 +163,9 @@ service_principals = [
         scope                = "/subscriptions/db34f572-8b71-40d6-8f99-f29a27612144/resourceGroups/rg-platform-dns-prd-uksouth-01"
         provider             = "sub-platform-connectivity"
       }
+    ],
+    aad_groups = [
+      "sg-sql-platform-admins-dev-01" // Required to allow DACPAC deployments to the SQL database
     ]
   },
   {
@@ -181,6 +189,9 @@ service_principals = [
         scope                = "/subscriptions/db34f572-8b71-40d6-8f99-f29a27612144/resourceGroups/rg-platform-dns-prd-uksouth-01"
         provider             = "sub-platform-connectivity"
       }
+    ],
+    aad_groups = [
+      "sg-sql-platform-admins-prd-01" // Required to allow DACPAC deployments to the SQL database
     ]
   },
   {
