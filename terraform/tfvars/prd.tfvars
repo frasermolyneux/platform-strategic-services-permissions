@@ -84,7 +84,7 @@ service_principals = [
       },
       { // Required to create web apps for the app service plan
         role_definition_name = "Website Contributor",
-        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-plans-prd-uksouth-01/providers/Microsoft.Web/serverfarms/plan-platform-prd-uksouth-01"
+        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-plans-prd-uksouth-01"
       },
       { // Required to create Front Door configuration for external facing services
         role_definition_name = "CDN Profile Contributor",
@@ -181,7 +181,7 @@ service_principals = [
       },
       { // Required to create web apps for the app service plan
         role_definition_name = "Website Contributor",
-        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-plans-prd-uksouth-01/providers/Microsoft.Web/serverfarms/plan-platform-prd-uksouth-01"
+        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-plans-prd-uksouth-01"
       },
       { // Required to be able to create SQL Databases
         role_definition_name = "SQL DB Contributor",
