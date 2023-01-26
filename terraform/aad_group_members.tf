@@ -1,7 +1,7 @@
 locals {
   aad_group_memberships = flatten([
     for principal in var.service_principals : [
-      for aad_group in principal.aad_groups : {
+      for aad_group in principal.aad_memberships : {
         key            = format("%s-%s", principal.name, aad_group)
         principal_name = principal.name
         aad_group      = aad_group

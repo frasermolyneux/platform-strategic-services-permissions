@@ -164,7 +164,7 @@ service_principals = [
         provider             = "sub-platform-connectivity"
       }
     ],
-    aad_groups = [
+    aad_memberships = [
       "sg-sql-platform-admins-dev-01" // Required to allow DACPAC deployments to the SQL database
     ]
   },
@@ -190,7 +190,7 @@ service_principals = [
         provider             = "sub-platform-connectivity"
       }
     ],
-    aad_groups = [
+    aad_memberships = [
       "sg-sql-platform-admins-prd-01" // Required to allow DACPAC deployments to the SQL database
     ]
   },
