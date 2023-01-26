@@ -35,9 +35,6 @@ variable "service_principals" {
       provider             = optional(string, null)
     })), [])
 
-    aad_memberships = optional(list(object({
-      group_name = string
-      provider   = optional(string, null)
-    })), [])
+    aad_memberships = optional(list(string), [])
   }))
 }
