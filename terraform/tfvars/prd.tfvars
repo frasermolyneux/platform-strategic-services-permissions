@@ -153,6 +153,10 @@ service_principals = [
         scope                = "/subscriptions/d68448b0-9947-46d7-8771-baa331a3063a/resourceGroups/rg-platform-plans-dev-uksouth-01"
         provider             = "sub-visualstudio-enterprise"
       },
+      { // Required to be able to create SQL Databases
+        role_definition_name = "SQL DB Contributor",
+        scope                = "/subscriptions/d68448b0-9947-46d7-8771-baa331a3063a/resourceGroups/rg-platform-sql-dev-uksouth-01/providers/Microsoft.Sql/servers/sql-platform-dev-uksouth-01-amjx44uuirhb6"
+      },
       { // Required to create Front Door configuration for external facing services
         role_definition_name = "CDN Profile Contributor",
         scope                = "/subscriptions/d68448b0-9947-46d7-8771-baa331a3063a/resourceGroups/rg-platform-frontdoor-dev-uksouth-01/providers/Microsoft.Cdn/profiles/fd-platform-dev-pa2u36baumsfc"
@@ -178,6 +182,10 @@ service_principals = [
       { // Required to create web apps for the app service plan
         role_definition_name = "Website Contributor",
         scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-plans-prd-uksouth-01/providers/Microsoft.Web/serverfarms/plan-platform-prd-uksouth-01"
+      },
+      { // Required to be able to create SQL Databases
+        role_definition_name = "SQL DB Contributor",
+        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-sql-prd-uksouth-01/providers/Microsoft.Sql/servers/sql-platform-prd-uksouth-01-ty7og2i6qpv3s"
       },
       { // Required to create Front Door configuration for external facing services
         role_definition_name = "CDN Profile Contributor",
