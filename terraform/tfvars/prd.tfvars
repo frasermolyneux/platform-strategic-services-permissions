@@ -203,6 +203,15 @@ service_principals = [
     ]
   },
   {
+    name = "spn-portal-repository-productionwebapps"
+    role_assignments = [
+      { // Required to create web apps for the app service plan
+        role_definition_name = "Website Contributor",
+        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-plans-prd-uksouth-01"
+      }
+    ]
+  },
+  {
     name = "spn-portal-repository-func-development"
   },
   {
