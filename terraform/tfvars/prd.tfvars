@@ -80,7 +80,7 @@ service_principals = [
       },
       { // Required to publish APIs and create subscriptions
         role_definition_name = "API Management Service Contributor",
-        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-apim-prd-uksouth-01/providers/Microsoft.ApiManagement/service/apim-platform-prd-uksouth-ty7og2i6qpv3s"
+        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-apim-prd-uksouth-01"
       },
       { // Required to create web apps for the app service plan
         role_definition_name = "Website Contributor",
@@ -186,7 +186,7 @@ service_principals = [
     role_assignments = [
       { // Required to publish APIs and create subscriptions
         role_definition_name = "API Management Service Contributor",
-        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-apim-prd-uksouth-01/providers/Microsoft.ApiManagement/service/apim-platform-prd-uksouth-ty7og2i6qpv3s"
+        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-apim-prd-uksouth-01"
       },
       { // Required to create web apps for the app service plan
         role_definition_name = "Website Contributor",
@@ -264,7 +264,7 @@ service_principals = [
       },
       { // Required to publish APIs and create subscriptions
         role_definition_name = "API Management Service Contributor",
-        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-apim-prd-uksouth-01/providers/Microsoft.ApiManagement/service/apim-platform-prd-uksouth-ty7og2i6qpv3s"
+        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-apim-prd-uksouth-01"
       },
       { // Required to create web apps for the app service plan
         role_definition_name = "Website Contributor",
