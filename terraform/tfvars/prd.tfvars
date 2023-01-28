@@ -150,6 +150,9 @@ service_principals = [
     name = "spn-portal-event-ingest-production"
   },
   {
+    name = "spn-portal-event-ingest-productionwebapps"
+  },
+  {
     name = "spn-portal-repository-development"
     role_assignments = [
       { // Required to publish APIs and create subscriptions
@@ -222,9 +225,40 @@ service_principals = [
   },
   {
     name = "spn-portal-repository-func-development"
+    role_assignments = [
+      { // Required to publish APIs and create subscriptions
+        role_definition_name = "API Management Service Contributor",
+        scope                = "/subscriptions/d68448b0-9947-46d7-8771-baa331a3063a/resourceGroups/rg-platform-apim-dev-uksouth-01"
+        provider             = "sub-visualstudio-enterprise"
+      },
+      { // Required to create web apps for the app service plan
+        role_definition_name = "Website Contributor",
+        scope                = "/subscriptions/d68448b0-9947-46d7-8771-baa331a3063a/resourceGroups/rg-platform-plans-dev-uksouth-01"
+        provider             = "sub-visualstudio-enterprise"
+      }
+    ]
   },
   {
     name = "spn-portal-repository-func-production"
+    role_assignments = [
+      { // Required to publish APIs and create subscriptions
+        role_definition_name = "API Management Service Contributor",
+        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-apim-prd-uksouth-01"
+      },
+      { // Required to create web apps for the app service plan
+        role_definition_name = "Website Contributor",
+        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-plans-prd-uksouth-01"
+      }
+    ]
+  },
+  {
+    name = "spn-portal-repository-func-productionwebapps"
+    role_assignments = [
+      { // Required to create web apps for the app service plan
+        role_definition_name = "Website Contributor",
+        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-plans-prd-uksouth-01"
+      }
+    ]
   },
   {
     name = "spn-portal-servers-integration-development"
@@ -297,9 +331,40 @@ service_principals = [
   },
   {
     name = "spn-portal-sync-development"
+    role_assignments = [
+      { // Required to publish APIs and create subscriptions
+        role_definition_name = "API Management Service Contributor",
+        scope                = "/subscriptions/d68448b0-9947-46d7-8771-baa331a3063a/resourceGroups/rg-platform-apim-dev-uksouth-01"
+        provider             = "sub-visualstudio-enterprise"
+      },
+      { // Required to create web apps for the app service plan
+        role_definition_name = "Website Contributor",
+        scope                = "/subscriptions/d68448b0-9947-46d7-8771-baa331a3063a/resourceGroups/rg-platform-plans-dev-uksouth-01"
+        provider             = "sub-visualstudio-enterprise"
+      }
+    ]
   },
   {
     name = "spn-portal-sync-production"
+    role_assignments = [
+      { // Required to publish APIs and create subscriptions
+        role_definition_name = "API Management Service Contributor",
+        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-apim-prd-uksouth-01"
+      },
+      { // Required to create web apps for the app service plan
+        role_definition_name = "Website Contributor",
+        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-plans-prd-uksouth-01"
+      }
+    ]
+  },
+  {
+    name = "spn-portal-sync-productionwebapps"
+    role_assignments = [
+      { // Required to create web apps for the app service plan
+        role_definition_name = "Website Contributor",
+        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-plans-prd-uksouth-01"
+      }
+    ]
   },
   {
     name = "spn-xtremeidiots-portal-development"
