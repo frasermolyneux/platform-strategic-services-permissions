@@ -215,7 +215,7 @@ service_principals = [
       },
       { // Required to be able to create SQL Databases
         role_definition_name = "SQL DB Contributor",
-        scope                = "/subscriptions/d68448b0-9947-46d7-8771-baa331a3063a/resourceGroups/rg-platform-sql-dev-uksouth-01/providers/Microsoft.Sql/servers/sql-platform-dev-uksouth-01-amjx44uuirhb6"
+        scope                = "/subscriptions/d68448b0-9947-46d7-8771-baa331a3063a/resourceGroups/rg-platform-sql-dev-uksouth-01"
       },
       { // Required to create Front Door configuration for external facing services
         role_definition_name = "CDN Profile Contributor",
@@ -245,7 +245,7 @@ service_principals = [
       },
       { // Required to be able to create SQL Databases
         role_definition_name = "SQL DB Contributor",
-        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-sql-prd-uksouth-01/providers/Microsoft.Sql/servers/sql-platform-prd-uksouth-01-ty7og2i6qpv3s"
+        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-sql-prd-uksouth-01"
       },
       { // Required to create Front Door configuration for external facing services
         role_definition_name = "CDN Profile Contributor",
@@ -433,7 +433,7 @@ service_principals = [
       },
       { // Required to be able to create SQL Databases
         role_definition_name = "SQL DB Contributor",
-        scope                = "/subscriptions/d68448b0-9947-46d7-8771-baa331a3063a/resourceGroups/rg-platform-sql-dev-uksouth-01/providers/Microsoft.Sql/servers/sql-platform-dev-uksouth-01-amjx44uuirhb6"
+        scope                = "/subscriptions/d68448b0-9947-46d7-8771-baa331a3063a/resourceGroups/rg-platform-sql-dev-uksouth-01"
       },
       { // Required to create Front Door configuration for external facing services
         role_definition_name = "CDN Profile Contributor",
@@ -467,7 +467,7 @@ service_principals = [
       },
       { // Required to be able to create SQL Databases
         role_definition_name = "SQL DB Contributor",
-        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-sql-prd-uksouth-01/providers/Microsoft.Sql/servers/sql-platform-prd-uksouth-01-ty7og2i6qpv3s"
+        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-sql-prd-uksouth-01"
       },
       { // Required to create Front Door configuration for external facing services
         role_definition_name = "CDN Profile Contributor",
