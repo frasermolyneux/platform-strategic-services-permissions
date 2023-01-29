@@ -416,9 +416,74 @@ service_principals = [
   },
   {
     name = "spn-xtremeidiots-portal-development"
+    role_assignments = [
+      { // Required to publish APIs and create subscriptions
+        role_definition_name = "API Management Service Contributor",
+        scope                = "/subscriptions/d68448b0-9947-46d7-8771-baa331a3063a/resourceGroups/rg-platform-apim-dev-uksouth-01"
+        provider             = "sub-visualstudio-enterprise"
+      },
+      { // Required to create web apps for the app service plan
+        role_definition_name = "Website Contributor",
+        scope                = "/subscriptions/d68448b0-9947-46d7-8771-baa331a3063a/resourceGroups/rg-platform-plans-dev-uksouth-01"
+        provider             = "sub-visualstudio-enterprise"
+      },
+      { // Required to be able to create SQL Databases
+        role_definition_name = "SQL DB Contributor",
+        scope                = "/subscriptions/d68448b0-9947-46d7-8771-baa331a3063a/resourceGroups/rg-platform-sql-dev-uksouth-01/providers/Microsoft.Sql/servers/sql-platform-dev-uksouth-01-amjx44uuirhb6"
+      },
+      { // Required to create Front Door configuration for external facing services
+        role_definition_name = "CDN Profile Contributor",
+        scope                = "/subscriptions/d68448b0-9947-46d7-8771-baa331a3063a/resourceGroups/rg-platform-frontdoor-dev-uksouth-01"
+        provider             = "sub-visualstudio-enterprise"
+      },
+      { // Required to create DNS configuration for external facing services
+        role_definition_name = "DNS Zone Contributor",
+        scope                = "/subscriptions/db34f572-8b71-40d6-8f99-f29a27612144/resourceGroups/rg-platform-dns-prd-uksouth-01"
+        provider             = "sub-platform-connectivity"
+      }
+    ],
+    aad_memberships = [
+      "sg-sql-platform-admins-dev-01" // Required to allow DACPAC deployments to the SQL database
+    ]
   },
   {
     name = "spn-xtremeidiots-portal-production"
+    role_assignments = [
+      { // Required to publish APIs and create subscriptions
+        role_definition_name = "API Management Service Contributor",
+        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-apim-prd-uksouth-01"
+      },
+      { // Required to create web apps for the app service plan
+        role_definition_name = "Website Contributor",
+        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-plans-prd-uksouth-01"
+      },
+      { // Required to be able to create SQL Databases
+        role_definition_name = "SQL DB Contributor",
+        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-sql-prd-uksouth-01/providers/Microsoft.Sql/servers/sql-platform-prd-uksouth-01-ty7og2i6qpv3s"
+      },
+      { // Required to create Front Door configuration for external facing services
+        role_definition_name = "CDN Profile Contributor",
+        scope                = "/subscriptions/db34f572-8b71-40d6-8f99-f29a27612144/resourceGroups/rg-platform-frontdoor-prd-uksouth-01"
+        provider             = "sub-platform-connectivity"
+      },
+      { // Required to create DNS configuration for external facing services
+        role_definition_name = "DNS Zone Contributor",
+        scope                = "/subscriptions/db34f572-8b71-40d6-8f99-f29a27612144/resourceGroups/rg-platform-dns-prd-uksouth-01"
+        provider             = "sub-platform-connectivity"
+      }
+    ],
+    aad_memberships = [
+      "sg-sql-platform-admins-prd-01" // Required to allow DACPAC deployments to the SQL database
+    ]
+  },
+  {
+    name = "spn-xtremeidiots-portal-productionwebapps"
+    role_assignments = [
+      { // Required to create web apps for the app service plan
+        role_definition_name = "Website Contributor",
+        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-plans-prd-uksouth-01"
+      }
+    ]
   },
   {
     name = "spn-bicep-modules-production"
