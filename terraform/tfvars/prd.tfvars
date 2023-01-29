@@ -417,6 +417,10 @@ service_principals = [
   {
     name = "spn-xtremeidiots-portal-development"
     role_assignments = [
+      { // Required to pull Bicep modules from the ACR
+        role_definition_name = "AcrPull",
+        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-acr-prd-uksouth-01/providers/Microsoft.ContainerRegistry/registries/acrty7og2i6qpv3s"
+      },
       { // Required to publish APIs and create subscriptions
         role_definition_name = "API Management Service Contributor",
         scope                = "/subscriptions/d68448b0-9947-46d7-8771-baa331a3063a/resourceGroups/rg-platform-apim-dev-uksouth-01"
@@ -449,6 +453,10 @@ service_principals = [
   {
     name = "spn-xtremeidiots-portal-production"
     role_assignments = [
+      { // Required to pull Bicep modules from the ACR
+        role_definition_name = "AcrPull",
+        scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-acr-prd-uksouth-01/providers/Microsoft.ContainerRegistry/registries/acrty7og2i6qpv3s"
+      },
       { // Required to publish APIs and create subscriptions
         role_definition_name = "API Management Service Contributor",
         scope                = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-apim-prd-uksouth-01"
