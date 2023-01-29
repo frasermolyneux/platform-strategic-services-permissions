@@ -4,7 +4,7 @@ instance    = "01"
 
 tags = {
   Environment = "prd",
-  Workload    = "platform-strategic-services-permissions",
+  Workload    = "platform",
   DeployedBy  = "GitHub-Terraform",
   Git         = "https://github.com/frasermolyneux/platform-strategic-services-permissions"
 }
